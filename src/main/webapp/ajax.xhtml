@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view locale="en">
+	<h:head>
+		<title>PrimeFaces</title>
+		<h:outputScript library="javax.faces" name="jsf.js" target="head" />
+	</h:head>
+	<h:body>
+		<h4>PrimeFaces</h4>
+		<h:form id="jsfForm">
+			<p:inputText id="nome" value="#{mainController.nome}">
+				<p:ajax event="keyup" process="@this" update=":jsfForm:nameGroup" />
+			</p:inputText>
+			<br />
+			<h:panelGroup id="nameGroup">
+				<h:outputText value="OI! #{mainController.nome}!!"
+					rendered="#{not empty mainController.nome}" />
+			</h:panelGroup>
+		</h:form>
+	</h:body>
+</f:view>
+</html>
